@@ -16,17 +16,6 @@ const SearchReducer = (state=initialState, action) => {
 
             break;
         }
-
-        case 'FETCH_FLICKR_RESULTS': {
-            console.log('FETCH_FLICKR_RESULTS');
-
-            state = {
-                ...state,
-                searchResults: action.payload.searchResults
-            };
-
-            break;
-        }
     }
 
     return state;

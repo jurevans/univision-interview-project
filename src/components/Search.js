@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
 import * as SearchActions from '../actions/SearchActions';
+import * as FlickrResultsActions from '../actions/FlickrResultsActions';
 
 const mapStateToProps = function(state) {
     return {
@@ -26,7 +27,7 @@ class Search extends Component {
     handleClick() {
         /* Dispatch Search to get results */
         /* Maybe there should be an action for the slideshow to update here instead ??? Keep search separate */
-        this.props.dispatch(SearchActions.fetchFlickrResults(this.props.text));
+        this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text));
     }
 
     render() {

@@ -15,7 +15,7 @@ const settings = {
      * Get full API URL:
      * Usage: settings.getPath('search')
      */
-    getUrl: (path => `${settings.youtube.API_BASE_URL}/${path}`)
+    getUrl: (() => `${settings.youtube.FLICKR_BASE_URL}/?method=${settings.FLICKR_SEARCH_METHOD}`)
 };
 
 export default settings;
