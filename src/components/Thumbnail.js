@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Thumbnail = ({imageUrl, title, id, handleClick}) => {
+const Thumbnail = ({photo, handleClick}) => {
+
+    const { title, farm, server, id, secret } = photo;
+
     return (
         <div
             className="thumbnail"
             onClick={() => {
-                handleClick.call(this, id)
+                typeof(handleClick) !== 'undefined' && handleClick.call(this, id)
             }}
         >
-            <img src={imageUrl} alt={title} />
+            <img src={`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`} alt={title} />
             <span>
                 {title.length > 30
                     ? `${title.substring(0, 30)}...`
@@ -20,10 +23,8 @@ const Thumbnail = ({imageUrl, title, id, handleClick}) => {
 };
 
 Thumbnail.propTypes = {
-    imageUrl: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired
+    photo: PropTypes.object,
+    handleClick: PropTypes.func
 };
 
 export default Thumbnail;

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
+import Thumbnail from './Thumbnail';
+
 import * as SlideshowActions from '../actions/SlideshowActions';
 
 const mapStateToProps = function(state) {
@@ -24,7 +26,20 @@ class Slideshow extends Component {
         return (
             <div className="slideshow">
                 {this.props.photos
-                    ? this.props.photos.map((photo, i) => <div key={i}>{photo.title}</div>)
+                    ? this.props.photos.map((photo, i) => {
+
+                        const { title, farm, server, id, secret } = photo;
+
+                        return (
+                            <div key={i}>
+
+
+                                <Thumbnail
+                                    photo={photo}
+                                />
+                            </div>
+                        )
+                    })
                     : null}
             </div>
         )
