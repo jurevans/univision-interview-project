@@ -40,6 +40,7 @@ class Slideshow extends Component {
             <div className="slideshow">
                 {!this.props.loaded && <div>Search Flickr by entering tags</div>}
                 {this.props.loading && <div>Searching...</div>}
+                {this.props.error && <div className="error">An error occured!</div>}
                 {this.props.photos && <Slider {...settings}>
                     {this.props.photos
                     ? this.props.photos.map((photo, i) =>
@@ -62,7 +63,8 @@ class Slideshow extends Component {
 Slideshow.propTypes = {
     photos: PropTypes.array,
     loaded: PropTypes.bool.isRequired,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Slideshow);
