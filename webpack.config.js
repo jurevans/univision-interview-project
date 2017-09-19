@@ -24,7 +24,7 @@ const config = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.js$/, loaders: [ 'babel-loader', 'eslint-loader'], exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
             {
                 test: /\.(sass|scss)$/,

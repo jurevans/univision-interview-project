@@ -29,7 +29,7 @@ const FlickrResultsReducer = (state=initialState, action) => {
                 loading: false,
                 error: null,
                 /* NOTE: Below, we need to validate the search input as well, so FETCH_FLICKR_RESULTS doesn't dispatch in the first place */
-                searchResults: action.payload.data.photos && action.payload.data.photos.photo || null,
+                searchResults: action.payload.data.photos && action.payload.data.photos.photo || null
                 /* NOTE: We could track pages as well for pagination, e.g.:
                  * page: action.payload.data.photos.page,
                  * pages: action.payload.data.photos.pages

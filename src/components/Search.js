@@ -35,7 +35,7 @@ class Search extends Component {
             this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text, 20));
         }
     }
-    
+
     render() {
         return (
             <div className="search">
@@ -53,7 +53,8 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

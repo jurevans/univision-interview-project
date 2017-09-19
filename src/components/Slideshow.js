@@ -11,7 +11,10 @@ import * as SlideshowActions from '../actions/SlideshowActions';
 
 const mapStateToProps = function(state) {
     return {
-        photos: state.flickr.searchResults
+        photos: state.flickr.searchResults,
+        loaded: state.flickr.loaded,
+        loading: state.flickr.loading,
+        error: state.flickr.error
     }
 };
 
@@ -35,6 +38,8 @@ class Slideshow extends Component {
 
         return (
             <div className="slideshow">
+                {!this.props.loaded && <div>Search Flickr by entering tags</div>}
+                {this.props.loading && <div>Searching...</div>}
                 {this.props.photos && <Slider {...settings}>
                     {this.props.photos
                     ? this.props.photos.map((photo, i) =>
@@ -55,7 +60,9 @@ class Slideshow extends Component {
 }
 
 Slideshow.propTypes = {
-    photos: PropTypes.array
+    photos: PropTypes.array,
+    loaded: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Slideshow);
