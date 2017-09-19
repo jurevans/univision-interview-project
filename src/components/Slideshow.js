@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import Thumbnail from './Thumbnail';
 
+import Slider from 'react-slick';
+
 import * as SlideshowActions from '../actions/SlideshowActions';
 
 const mapStateToProps = function(state) {
@@ -21,26 +23,32 @@ const mapDispatchToProps = function (dispatch) {
 
 class Slideshow extends Component {
 
-    /* USE THUMBNAIL BELOW, then thumbnail can dispatch action to request IMAGE for the "photo" from API */
     render() {
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+
+        };
+
         return (
             <div className="slideshow">
-                {this.props.photos
-                    ? this.props.photos.map((photo, i) => {
-
-                        const { title, farm, server, id, secret } = photo;
-
-                        return (
-                            <div key={i}>
-
-
-                                <Thumbnail
-                                    photo={photo}
-                                />
-                            </div>
-                        )
-                    })
+                {this.props.photos && <Slider {...settings}>
+                    {this.props.photos
+                    ? this.props.photos.map((photo, i) =>
+                        <div
+                            className="thumbnail"
+                            key={i}>
+                            <Thumbnail
+                                key={i}
+                                photo={photo}
+                            />
+                        </div>
+                    )
                     : null}
+                </Slider>}
             </div>
         )
     }

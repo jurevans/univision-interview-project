@@ -14,7 +14,7 @@ const settings = {
         `${settings.flickr.API_ENDPOINT}/`
             + `?method=${settings.flickr.SEARCH_METHOD}`
             + `&api_key=${settings.flickr.API_KEY}`
-            + `&tags=${tags.replace(' ', ',')}` // Make this a little more robust!
+            + `&tags=${tags.replace(/\s+/g, ',')}` // Make this a little more robust!
             + `&per_page=${perPage}&format=json&nojsoncallback=1`)
 };
 

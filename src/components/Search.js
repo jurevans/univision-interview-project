@@ -27,7 +27,7 @@ class Search extends Component {
     handleClick() {
         /* Dispatch Search to get results */
         /* Maybe there should be an action for the slideshow to update here instead ??? Keep search separate */
-        this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text));
+        this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text, 20)); /* 30 = num of results, could be set dynamically. Default 10 */
     }
 
     render() {
