@@ -19,6 +19,7 @@ body {
   margin: 0;
 }
 
+/** TODO: Make these styles responsive! Use a grid */
 .search {
   display: block;
   width: 300px;
@@ -27,7 +28,6 @@ body {
 
 .slideshow {
   width: 800px;
-
 
   .slick-slider {
 
@@ -47,7 +47,6 @@ body {
   }
 }
 
-
 .thumbnail {
   height: 300px;
   width: 90%;
@@ -57,7 +56,6 @@ body {
     margin: 0 auto;
   }
 }
-
 
 @media (max-width: 750px) {
 

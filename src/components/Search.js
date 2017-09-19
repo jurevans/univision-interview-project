@@ -30,10 +30,20 @@ class Search extends Component {
         this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text, 20)); /* 30 = num of results, could be set dynamically. Default 10 */
     }
 
+    handleKeyPress(e){
+        if (e.key === 'Enter') {
+            this.props.dispatch(FlickrResultsActions.fetchFlickrResults(this.props.text, 20));
+        }
+    }
+    
     render() {
         return (
             <div className="search">
-                <input type="text" value={this.props.text} onChange={this.handleInput.bind(this)}/>
+                <input
+                    type="text"
+                    value={this.props.text}
+                    onChange={this.handleInput.bind(this)}
+                    onKeyPress={this.handleKeyPress.bind(this)} />
                 <button
                     onClick={this.handleClick.bind(this)}>Search</button>
 
