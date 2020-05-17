@@ -4,6 +4,6 @@ import SearchReducer from './SearchReducer';
 import FlickrResultsReducer from './FlickrResultsReducer';
 
 export default combineReducers({
-    search: SearchReducer,
-    flickr: FlickrResultsReducer
+  search: SearchReducer,
+  flickr: FlickrResultsReducer
 });

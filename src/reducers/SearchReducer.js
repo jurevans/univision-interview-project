@@ -1,23 +1,23 @@
 
 const initialState = {
-    text: ''
+  text: ''
 };
 
 const SearchReducer = (state=initialState, action) => {
 
-    switch(action.type) {
-        case 'SEARCH_TEXT_ENTERED': {
+  switch(action.type) {
+    case 'SEARCH_TEXT_ENTERED': {
 
-            state = {
-                ...state,
-                text: action.payload.text
-            };
+      state = {
+        ...state,
+        text: action.payload.text
+      };
 
-            break;
-        }
+      break;
     }
+  }
 
-    return state;
+  return state;
 };
 
 export default SearchReducer;

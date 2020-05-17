@@ -12,23 +12,23 @@ const store = createStore(reducer, middleware);
 // IF NOT USING redux-promise-middleware, dispatch like so:
 
 store.dispatch((dispatch) => {
-    // Related Videos
+  // Related Videos
 
-    dispatch({type: 'FETCH_RELATED_VIDEOS'});
+  dispatch({type: 'FETCH_RELATED_VIDEOS'});
 
-    axios.get(`${BASE_API_URL}`)
-        .then((response) => {
-            dispatch({
-                type: 'FETCH_RELATED_VIDEOS_FULFILLED',
-                payload: response.data
-            });
-        })
-        .catch((error) => {
-            dispatch({
-                type: 'FETCH_RELATED_VIDEOS_REJECTED',
-                payload: error
-            });
-        })
+  fetch(`${BASE_API_URL}`)
+    .then((response) => {
+      dispatch({
+        type: 'FETCH_RELATED_VIDEOS_FULFILLED',
+        payload: response.data
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: 'FETCH_RELATED_VIDEOS_REJECTED',
+        payload: error
+      });
+    })
 });
 */
 

@@ -9,8 +9,8 @@ import settings from '../../settings';
  */
 
 export function fetchFlickrResults(tags, numResults) {
-    return {
-        type: 'FETCH_FLICKR_RESULTS',
-        payload: axios.get(settings.getUrl(tags, numResults))
-    }
+  return {
+    type: 'FETCH_FLICKR_RESULTS',
+    payload: axios.get(settings.getUrl(tags, numResults))
+  }
 }
